@@ -1,6 +1,6 @@
 import Cycle from '@cycle/core';
 // import {div, label, input, hr, h1, makeDOMDriver} from '@cycle/dom';
-import CycleDOM from '@cycle/dom';
+import {makeDOMDriver, div, input, p} from '@cycle/dom';
 
 //
 // function main(sources) {
@@ -22,15 +22,22 @@ import CycleDOM from '@cycle/dom';
 //
 // Cycle.run(main, { DOM: makeDOMDriver('#app-container') });
 
-function main() {
+function main(drivers) {
     return {
-        DOM: Rx.Observable.interval(1000)
-            .map(i => CycleDOM.h1('' + i + ' seconds elapsed'))
-    };
+        DOM: drivers.DOM.select('input').events('click')
+            .map(ev => ev.target.checked)
+                .startWith(false)
+                .map(toggled =>
+                    div([
+                        input({type: 'checkbox'}), 'Toggle me',
+                        p(toggled ? 'ON' : 'off')
+                    ])
+                )
+    }
 }
 
 const drivers = {
-    DOM: CycleDOM.makeDOMDriver('#app')
+    DOM: makeDOMDriver('#app')
 };
 
 Cycle.run(main, drivers);

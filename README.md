@@ -1,6 +1,7 @@
 # cycle-preybird
 Experimental cycle.js project
 
+
 ## Getting started
 
 ### Installation
@@ -10,7 +11,8 @@ Experimental cycle.js project
 > webpack
 
 ### Develop
-> webpack --watch
+> webpack-dev-server
+
 
 ## About
 Author: [ProgrammerPer](https://www.programmerper.com)
