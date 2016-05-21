@@ -1,9 +1,8 @@
 import Cycle from '@cycle/core';
 // import {div, label, input, hr, h1, makeDOMDriver} from '@cycle/dom';
 import {makeDOMDriver, div, input, p} from '@cycle/dom';
-import {hJSX} from '@cycle/dom'; // for jsx utilization
 
-//
+
 // function main(sources) {
 //     const sinks = {
 //         DOM: sources.DOM.select('.field').events('input')
@@ -20,7 +19,7 @@ import {hJSX} from '@cycle/dom'; // for jsx utilization
 //     };
 //     return sinks;
 // }
-//
+
 // Cycle.run(main, { DOM: makeDOMDriver('#app-container') });
 
 function main(drivers) {
@@ -33,11 +32,6 @@ function main(drivers) {
                     input({type: 'checkbox'}), 'Toggle me',
                     p(toggled ? 'ON' : 'off')
                 ])
-                // hJSX plugin must be enabled
-                // <div>
-                //     <input type="checkbox" /> Toggle me
-                //     <p>{toggled ? 'ON' : 'off'}</p>
-                // </div>
             )
     }
 }
